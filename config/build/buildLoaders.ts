@@ -10,6 +10,22 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         exclude: /node_modules/,
     };
 
+    // лоадер для SVG изображений
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
+
+    // лоадер для добавления изображений в проект
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
+
     const stylesLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -21,7 +37,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
                 options: {
                     // включаем поддержку модулей у лоадера
                     modules: {
-                        // включаем модульные стили (классы с именами asdWQSsaQ) только если они содержат в названии module
+                        // включаем модульные стили только если они содержат в названии module
                         auto: (resPath: string) => !!resPath.includes('.module.'),
                         localIdentName: isDev
                             ? '[path][name]__[local]--[hash:base64:8]'
@@ -33,5 +49,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         ],
     };
 
-    return [typescriptLoader, stylesLoader];
+    return [typescriptLoader, stylesLoader, svgLoader, fileLoader];
 }

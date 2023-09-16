@@ -20,3 +20,15 @@
 
   border: 1px solid black;
 }
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+
+  width: 100%;
+
+  padding: 20px;
+}
