@@ -1,2 +1,2 @@
-export * from './AppLink';
-export * from './AppLink.props';
+export * from './ui/AppLink';
+export { AppLinkTheme } from './ui/AppLink.props';

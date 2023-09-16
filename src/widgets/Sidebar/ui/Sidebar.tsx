@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cn from 'clsx';
 import styles from './Sidebar.module.scss';
 import { ISidebarProps } from './Sidebar.props';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { ThemeSwitcher } from '@/shared/ui';
 
 export const Sidebar = ({ className }: ISidebarProps) => {
 	const [collapsed, setCollapsed] = useState<boolean>(false);

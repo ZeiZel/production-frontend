@@ -1,2 +1,2 @@
-export * from './Button';
-export { ThemeButton } from './Button.props';
+export * from './ui/Button';
+export { ThemeButton } from './ui/Button.props';

@@ -1,18 +1,24 @@
 import React from 'react';
 import cn from 'clsx';
-import { useTheme } from './model/providers/ThemeProvider';
-import { AppRouter } from './model/providers/RouterProvider';
-import { Navbar } from '@/widgets';
+import './styles/index.scss';
+import {useTheme} from "@/app/providers/ThemeProvider";
+import {AppRouter} from "@/app/providers/router";
+import {Navbar} from "@/widgets/Navbar";
+import {Sidebar} from "@/widgets/Sidebar";
 
-export const App = () => {
-	const { theme } = useTheme();
 
-	return (
-		<div
-			className={cn('app', [theme])}
-		>
-			<Navbar className={'navbar'} />
-			<AppRouter />
-		</div>
-	);
+const App = () => {
+   const { theme } = useTheme();
+
+    return (
+        <div className={cn('app', theme)}>
+            <Navbar />
+            <div className="content-page">
+                <Sidebar />
+                <AppRouter />
+            </div>
+        </div>
+    );
 };
+
+export default App;
