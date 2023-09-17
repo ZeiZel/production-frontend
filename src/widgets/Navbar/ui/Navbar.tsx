@@ -8,7 +8,7 @@ export const Navbar = ({ className }: INavbarProps) => {
 	return (
 		<div className={cn(styles.navbar, className)}>
 			<div className={styles.links}>
-				<AppLink theme={AppLinkTheme.SECONDARY} to={'/'} className={styles.mainLink}>
+				<AppLink theme={AppLinkTheme.SECONDARY} to={'/'} className={styles.links__main}>
 					Главная
 				</AppLink>
 				<AppLink theme={AppLinkTheme.PRIMARY} to={'/about'}>

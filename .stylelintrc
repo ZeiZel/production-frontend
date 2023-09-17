@@ -1,0 +1,14 @@
+{
+	"extends": "stylelint-config-standard",
+	"plugins": [
+		"stylelint-scss"
+	],
+	"rules": {
+		"property-no-unknown": null,
+		"no-invalid-double-slash-comments": null,
+		"no-descending-specificity": null,
+		"font-family-no-duplicate-names": null,
+		"function-no-unknown": null,
+		"block-no-empty": null
+	}
+}
