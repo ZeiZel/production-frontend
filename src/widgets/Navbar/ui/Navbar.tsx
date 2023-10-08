@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'clsx';
 import styles from './Navbar.module.scss';
-import { INavbarProps } from './Navbar.props';
 import { AppLink, AppLinkTheme } from '@/shared/ui';
+import { INavbarProps } from './Navbar.props';
 
 export const Navbar = ({ className }: INavbarProps) => {
 	return (

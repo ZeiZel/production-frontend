@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import cn from 'clsx';
 import styles from './Sidebar.module.scss';
 import { ISidebarProps } from './Sidebar.props';
-import { ThemeSwitcher } from '@/shared/ui';
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
+import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
 
 export const Sidebar = ({ className }: ISidebarProps) => {
 	const [collapsed, setCollapsed] = useState<boolean>(false);
@@ -14,6 +15,7 @@ export const Sidebar = ({ className }: ISidebarProps) => {
 			<button onClick={onToggle}>toggle</button>
 			<div className={styles.switchers}>
 				<ThemeSwitcher />
+				<LanguageSwitcher />
 			</div>
 		</div>
 	);
