@@ -3,17 +3,15 @@
 		// постановка всех путей от начала папки проекта
 		"baseUrl": "./src",
 		"paths": {
-			"@/*": [
-				"*"
-			]
+			"@/*": ["*"]
 		},
 		"outDir": "./dist/",
 		"noImplicitAny": false,
 		// современные модули
 		"module": "ESNext",
-		"target": "es5",
+		"target": "es6",
 		// устанавливаем данное значение, чтобы не было необходимости импортировать React
-		"jsx": "react-jsx",
+		"jsx": "react",
 		"allowJs": true,
 		"moduleResolution": "node",
 		// позволяет использовать обычные импорты вместо CommonJS

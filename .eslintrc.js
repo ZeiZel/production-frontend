@@ -1,5 +1,6 @@
-module.exports = {
-	parser: 'babel-eslint',
+module.export = {
+	root: true,
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 2018,
 		sourceType: 'module',
@@ -16,6 +17,20 @@ module.exports = {
 	],
 	plugins: ['import', 'react', 'react-hooks', 'jsx-a11y', 'prettier'],
 	rules: {
+		'prettier/prettier': [
+			'error',
+			{
+				parser: 'typescript',
+				printWidth: 100,
+				singleQuote: true,
+				jsxSingleQuote: true,
+				useTabs: true,
+				tabWidth: 4,
+				semi: true,
+				arrowParens: 'always',
+				trailingComma: 'all',
+			},
+		],
 		'import/no-unresolved': 'off',
 		'no-undef': 'warn',
 		'no-unused-vars': 'warn',

@@ -6,24 +6,24 @@ import { buildPlugins } from './buildPlugins';
 import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
-    const { mode, paths, isDev } = options;
+	const { mode, paths, isDev } = options;
 
-    return {
-        mode: mode,
-        entry: paths.entry,
-        output: {
-            filename: '[name].[contenthash].js',
-            path: paths.build,
-            clean: true,
-        },
-        module: {
-            rules: buildLoaders(options),
-        },
-        resolve: buildResolvers(options),
-        plugins: buildPlugins(options),
-        // позволяет показать, где в коде произошла ошибка
-        devtool: isDev ? 'inline-source-map' : undefined,
-        // будет запускать девсервер, который будет рефрешить страницу
-        devServer: isDev ? buildDevServer(options) : undefined,
-    };
+	return {
+		mode: mode,
+		entry: paths.entry,
+		output: {
+			filename: '[name].[contenthash].js',
+			path: paths.build,
+			clean: true,
+		},
+		module: {
+			rules: buildLoaders(options),
+		},
+		resolve: buildResolvers(options),
+		plugins: buildPlugins(options),
+		// позволяет показать, где в коде произошла ошибка
+		devtool: isDev ? 'inline-source-map' : undefined,
+		// будет запускать девсервер, который будет рефрешить страницу
+		devServer: isDev ? buildDevServer(options) : undefined,
+	};
 }

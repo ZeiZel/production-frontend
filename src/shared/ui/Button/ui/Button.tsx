@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import cn from 'clsx';
 import styles from './Button.module.scss';
 import { IButtonProps } from './Button.props';

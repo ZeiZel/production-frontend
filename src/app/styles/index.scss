@@ -1,8 +1,8 @@
-@import url("default/reset");
-@import url("default/base");
-@import url("variables/globals");
-@import url("themes/light");
-@import url("themes/dark");
+@import "default/reset";
+@import "default/base";
+@import "variables/globals";
+@import "themes/light";
+@import "themes/dark";
 
 .app {
     font: var(--font-m);
