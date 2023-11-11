@@ -2,8 +2,9 @@ module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
 	env: {
-		'browser': true,
-		'es2021': true,
+		browser: true,
+		es2021: true,
+		jest: true,
 	},
 	settings: {
 		react: {
@@ -16,7 +17,7 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',
 		'prettier',
-		"plugin:i18next/recommended"
+		'plugin:i18next/recommended',
 	],
 	overrides: [
 		{
@@ -43,7 +44,7 @@ module.exports = {
 	},
 	/* подключение внешних плагинов */
 	'plugins': [
-		"unicorn",
+		'unicorn',
 		'import',
 		'react',
 		'i18next',
@@ -53,6 +54,11 @@ module.exports = {
 	],
 	/* настройка правил  */
 	'rules': {
+		/*
+		* проверяет максимальную длину строки
+		* если комментарий, то игнорирует
+		*  */
+		'max-len': ['error', { code: 100, ignoreComments: true }],
 		'no-undef': 'warn',
 		/* нельзя использовать объявленные ранее имена (даже внутри другого скоупа) */
 		'no-shadow': 'warn',
@@ -65,8 +71,8 @@ module.exports = {
 		'import/no-unresolved': 'off',
 		'react-hooks/rules-of-hooks': 'error',
 		/* запрещает просто вводить текст в JSX - можно только через перевод */
-		"i18next/no-literal-string": ['error', { markupOnly: true }],
+		'i18next/no-literal-string': ['error', { markupOnly: true }],
 		/* неиспользуемые переменные запрещены (TS) */
-		'@typescript-eslint/no-unused-vars': 'warn'
+		'@typescript-eslint/no-unused-vars': 'warn',
 	},
 };
