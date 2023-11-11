@@ -51,7 +51,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
 	/* лоадер, который позволит использовать бейбел */
 	const babelLoader = {
-		test: /\.(js|jsx|tsx)$/,
+		test: /\.(js|jsx|ts|tsx)$/,
 		exclude: /node_modules/,
 		use: {
 			loader: 'babel-loader',
@@ -62,7 +62,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 	};
 
 	/*
-	* typescriptLoader должен идти после babelLoader
-	* */
+	 * typescriptLoader должен идти после babelLoader
+	 * */
 	return [fileLoader, svgLoader, babelLoader, typescriptLoader, stylesLoader];
 }
