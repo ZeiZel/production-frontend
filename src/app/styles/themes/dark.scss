@@ -1,4 +1,4 @@
-.app.light {
+.app.dark {
 	/* бэкграунд */
 	--background: #242b33;
 	--background-inverted: #fff;
@@ -11,4 +11,7 @@
 
 	/* акцентные цвета */
 	--accent-color: #d4c17f;
+
+	/* custom */
+	--base-01: #727272;
 }
