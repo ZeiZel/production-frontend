@@ -6,7 +6,7 @@ import { AppLink, AppLinkTheme } from '@/shared/ui';
 import { INavbarProps } from './Navbar.props';
 
 export const Navbar = ({ className }: INavbarProps) => {
-	const { t } = useTranslation();
+	const { t } = useTranslation('ui');
 
 	return (
 		<div className={cn(styles.navbar, className)}>

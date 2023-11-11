@@ -1,6 +1,14 @@
 .app.light {
-    --bg-color: #fff;
-    --accent-color: #d4c17f;
-    --primary-color: #242b33;
-    --secondary-color: #e7e7e7;
+	/* бэкграунд */
+	--background: #fff;
+	--background-inverted: #242b33;
+
+	/* текст */
+	--text-main: #2c2c2c;
+	--text-secondary: #646464;
+	--inverted-text-main: #d7d7d7;
+	--inverted-text-secondary: #aeaeae;
+
+	/* акцентные цвета */
+	--accent-color: #d4c17f;
 }

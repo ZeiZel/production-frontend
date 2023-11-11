@@ -1,8 +1,14 @@
-.app.dark {
-    --bg-color: #242b33;
-    --accent-color: #d4c17f;
-    --primary-color: #fff;
-    --secondary-color: #e7e7e7;
-    --inverted-primary-color: #242b33;
-    --inverted-secondary-color: #e7e7e7;
+.app.light {
+	/* бэкграунд */
+	--background: #242b33;
+	--background-inverted: #fff;
+
+	/* текст */
+	--text-main: #d7d7d7;
+	--text-secondary: #aeaeae;
+	--inverted-text-main: #2c2c2c;
+	--inverted-text-secondary: #646464;
+
+	/* акцентные цвета */
+	--accent-color: #d4c17f;
 }
