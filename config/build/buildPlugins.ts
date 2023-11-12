@@ -1,7 +1,13 @@
-import { WebpackPluginInstance, ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import {
+	WebpackPluginInstance,
+	ProgressPlugin,
+	DefinePlugin,
+	HotModuleReplacementPlugin,
+} from 'webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export const buildPlugins = ({ paths, isDev }: BuildOptions): WebpackPluginInstance[] => {
@@ -22,6 +28,14 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): WebpackPluginInsta
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 			__API__: JSON.stringify('https://' /* api_path */),
+		}),
+		/* данный плагин анализирует размеры собираемых пакетов */
+		new BundleAnalyzerPlugin({
+			/*
+			 * отключаем автоматические открытие анализатора
+			 * он будет открываться по ссылке из терминала
+			 * */
+			openAnalyzer: false,
 		}),
 	];
 
