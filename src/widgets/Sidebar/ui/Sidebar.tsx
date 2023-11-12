@@ -13,7 +13,10 @@ export const Sidebar = ({ className }: ISidebarProps) => {
 	const onToggle = () => setCollapsed((prev) => !prev);
 
 	return (
-		<div className={cn(styles.sidebar, className, { [styles.collapsed]: collapsed })}>
+		<div
+			data-testid={'sidebar'}
+			className={cn(styles.sidebar, className, { [styles.collapsed]: collapsed })}
+		>
 			<button onClick={onToggle}>{t('toggle')}</button>
 			<div className={styles.switchers}>
 				<ThemeSwitcher />

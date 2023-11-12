@@ -13,12 +13,27 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 	// лоадер для SVG изображений
 	const svgLoader = {
 		test: /\.svg$/,
-		use: ['@svgr/webpack'],
+		use: [{
+			loader: '@svgr/webpack',
+			options: {
+				icon: true,
+				svgoConfig: {
+					plugins: [
+						{
+							name: 'convertColors',
+							params: {
+								currentColor: true,
+							}
+						}
+					]
+				}
+			}
+		}],
 	};
 
 	// лоадер для добавления изображений в проект
 	const fileLoader = {
-		test: /\.(png|jpe?g|gif)$/i,
+		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
 		use: [
 			{
 				loader: 'file-loader',
@@ -28,6 +43,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
 	const stylesLoader = {
 		test: /\.s[ac]ss$/i,
+		exclude: /node_modules/,
 		use: [
 			// в зависимости от режима разработки будет применяться разный лоадер
 			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
 
 export enum ThemeButton {
+	PRIMARY = 'primary',
 	CLEAR = 'clear',
 }
 
