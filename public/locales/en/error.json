@@ -1,0 +1,6 @@
+{
+	"error_page_title": "Something went wrong",
+	"error_page_button": "Reload page",
+	"error_bug": "Throw Bug",
+	"error_bug_message": "You cast custom error"
+}
