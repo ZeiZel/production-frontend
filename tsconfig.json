@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
 		// постановка всех путей от начала папки проекта
-		"baseUrl": "./src",
+		"baseUrl": ".",
 		"paths": {
-			"@/*": ["*"]
+			"@/*": ["src/*"]
 		},
 		"outDir": "./dist/",
 		"noImplicitAny": false,

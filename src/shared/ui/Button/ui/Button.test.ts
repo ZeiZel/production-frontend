@@ -1,7 +1,7 @@
-import cn from 'clsx';
+import { NameHelper } from '@/shared/lib/helpers';
 
 describe('Button', () => {
 	test('click', () => {
-		expect(cn('className')).toBe('className');
+		expect(NameHelper.getFirstName('ASd asd ASDASDA')).toBe('asd');
 	});
 });

@@ -68,6 +68,7 @@ module.exports = {
 		'react/prop-types': 0,
 		'react/jsx-props-no-spreading': 'warn',
 		'react/function-component-definition': 'off',
+		/*  */
 		'import/no-unresolved': 'off',
 		'react-hooks/rules-of-hooks': 'error',
 		/* запрещает просто вводить текст в JSX - можно только через перевод */
