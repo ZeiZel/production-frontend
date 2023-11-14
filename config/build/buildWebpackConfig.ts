@@ -23,7 +23,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
 		resolve: buildResolvers(options),
 		plugins: buildPlugins(options),
 		// позволяет показать, где в коде произошла ошибка
-		devtool: isDev ? 'inline-source-map' : undefined,
+		devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
 		// будет запускать девсервер, который будет рефрешить страницу
 		devServer: isDev ? buildDevServer(options) : undefined,
 	};

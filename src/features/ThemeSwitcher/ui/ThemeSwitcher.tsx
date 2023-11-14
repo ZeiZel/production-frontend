@@ -1,6 +1,6 @@
 import React from 'react';
 import { Theme, useTheme } from '@/app/providers/ThemeProvider';
-import { Button, ThemeButton } from '@/shared/ui';
+import { Button, EIcons, Icon, ThemeButton } from '@/shared/ui';
 
 const LightIcon = () => (
 	<svg
@@ -50,7 +50,11 @@ export const ThemeSwitcher = () => {
 
 	return (
 		<Button theme={ThemeButton.CLEAR} onClick={toggleTheme}>
-			{theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
+			{theme === Theme.DARK ? (
+				<Icon name={EIcons.DarkTheme} />
+			) : (
+				<Icon name={EIcons.LightTheme} />
+			)}
 		</Button>
 	);
 };

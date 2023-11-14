@@ -14,18 +14,13 @@ import { BuildOptions } from './types/config';
 
 export const buildPlugins = ({ paths, isDev }: BuildOptions): WebpackPluginInstance[] => {
 	const plugins = [
-		// то плагин, который будет показывать прогресс сборки
-		new ProgressPlugin(),
 		// это плагин, который будет добавлять самостоятельно скрипт в наш index.html
 		new HTMLWebpackPlugin({
 			// указываем путь до базового шаблона той вёрстки, которая нужна в нашем проекте
 			template: paths.html,
 		}),
-		// этот плагин будет отвечать за отделение чанков с css от файлов JS
-		new MiniCssExtractPlugin({
-			filename: 'css/[name].[contenthash:8].css',
-			chunkFilename: 'css/[name].[contenthash:8].css',
-		}),
+		// то плагин, который будет показывать прогресс сборки
+		new ProgressPlugin(),
 		// этот плагин позволяет прокидывать глобальные переменные в приложение
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
@@ -68,6 +63,7 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): WebpackPluginInsta
 	}
 
 	if (!isDev) {
+		// этот плагин будет отвечать за отделение чанков с css от файлов JS
 		plugins.push(new MiniCssExtractPlugin({
 			filename: 'css/[name].[contenthash:8].css',
 			chunkFilename: 'css/[name].[contenthash:8].css',

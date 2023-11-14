@@ -1,4 +1,6 @@
 {
 	"main": "Главная",
-	"about": "О приложении"
+	"about": "О приложении",
+	"translate_button": "ru",
+	"toggle": "Раскрыть"
 }

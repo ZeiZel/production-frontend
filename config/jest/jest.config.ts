@@ -22,10 +22,11 @@ const config: Config = {
 	 * - стилей
 	 * */
 	moduleNameMapper: {
+		/* эта настройка нужна для поддержки абсолютных импортов */
 		'^@/(.*)$': '<rootDir>/src/$1',
 		'\\.s?css$': 'identity-obj-proxy',
 		/* чтобы работали svg, их нужно заменить на моковый компонент */
-		'\\.svg': '<rootDir>/config/jest/jestEmptyComponent.tsx',
+		'\\.(svg|png|jpg)': '<rootDir>/config/jest/jestEmptyComponent.tsx',
 	},
 	moduleDirectories: ['node_modules', '<rootDir>/'],
 	/* эту директорию не трогаем */
@@ -35,7 +36,7 @@ const config: Config = {
 	/* регулярка, по которой находим файлы с тестами */
 	testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 	/* тут мы определяем путь до файла с сетапмами джеста */
-	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+	setupFilesAfterEnv: ['<rootDir>config/jest/jest.setup.ts'],
 	/* тут настроен репорт для проходок тестов */
 	reporters: [
 		'default',
