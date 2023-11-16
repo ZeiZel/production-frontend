@@ -12,7 +12,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = ({ paths, isDev }: BuildOptions): WebpackPluginInstance[] => {
+export const buildPlugins = ({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] => {
 	const plugins = [
 		// это плагин, который будет добавлять самостоятельно скрипт в наш index.html
 		new HTMLWebpackPlugin({
@@ -24,8 +24,8 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): WebpackPluginInsta
 		// этот плагин позволяет прокидывать глобальные переменные в приложение
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
-			__API__: JSON.stringify(''),
-			__PROJECT__: JSON.stringify(''),
+			__API__: JSON.stringify(apiUrl),
+			__PROJECT__: JSON.stringify('frontend'),
 		}),
 		/* данный плагин будет вываливать ошибку, если зависимости будут зациклены */
 		new CircularDependencyPlugin({

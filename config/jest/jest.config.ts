@@ -4,7 +4,7 @@ const config: Config = {
 	/* устанавливаем сюда глобальные переменные */
 	globals: {
 		__IS_DEV__: true,
-		__API__: '',
+		__API__: '/test/api',
 		__PROJECT__: 'jest',
 	},
 	/* очищаем моковые данные */
