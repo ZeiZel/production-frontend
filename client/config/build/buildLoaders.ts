@@ -1,53 +1,17 @@
 import { RuleSetRule } from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loader/style.loader';
+import { buildFileLoader } from './loader/file.loader';
+import { buildBabelLoader } from './loader/babel.loader';
 
-export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-    // так как порядок некоторых лоадеров важен, то важные лоадеры можно выносить в отдельные переменные
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+export function buildLoaders(options: BuildOptions): RuleSetRule[] {
+	/* лоадер для добавления изображений в проект */
+	const fileLoader = buildFileLoader();
+	/* лоадер стилей */
+	const stylesLoader = buildCssLoader(options.isDev);
+	/* два лоадера, которые будут собирать ts и js файлы */
+	const tsBabelLoader = buildBabelLoader({ ...options, isTsx: true });
+	const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
 
-    // лоадер для SVG изображений
-    const svgLoader = {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    };
-
-    // лоадер для добавления изображений в проект
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-            {
-                loader: 'file-loader',
-            },
-        ],
-    };
-
-    const stylesLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            // в зависимости от режима разработки будет применяться разный лоадер
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            // так же лоадеры можно передавать в виде объектов, если нужно к ним добавить опции
-            {
-                loader: 'css-loader',
-                options: {
-                    // включаем поддержку модулей у лоадера
-                    modules: {
-                        // включаем модульные стили только если они содержат в названии module
-                        auto: (resPath: string) => !!resPath.includes('.module.'),
-                        localIdentName: isDev
-                            ? '[path][name]__[local]--[hash:base64:8]'
-                            : '[hash:base64:8]',
-                    },
-                },
-            },
-            'sass-loader',
-        ],
-    };
-
-    return [typescriptLoader, stylesLoader, svgLoader, fileLoader];
+	return [fileLoader, codeBabelLoader, tsBabelLoader, stylesLoader];
 }

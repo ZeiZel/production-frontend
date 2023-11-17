@@ -1,26 +1,31 @@
 {
 	"compilerOptions": {
 		// постановка всех путей от начала папки проекта
-		"baseUrl": "./src",
+		"baseUrl": ".",
 		"paths": {
-			"@/*": [
-				"*"
-			]
+			"@/*": ["./src/*"]
 		},
 		"outDir": "./dist/",
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		// современные модули
 		"module": "ESNext",
 		"target": "es5",
 		// устанавливаем данное значение, чтобы не было необходимости импортировать React
 		"jsx": "react-jsx",
 		"allowJs": true,
+		"strict": true,
 		"moduleResolution": "node",
-		// позволяет использовать обычные импорты вместо CommonJS
 		"esModuleInterop": true,
+		// позволяет использовать обычные импорты вместо CommonJS
+		"isolatedModules": true,
 		// убирает потребность писать * as для импорта нодовских пакетов
 		"allowSyntheticDefaultImports": true
 	},
+	"include": [
+		"./config/jest/jest.setup.ts",
+		"./src/**/*.ts",
+		"./src/**/*.tsx"
+	],
 	// настройки импортов нодовских плагинов
 	"ts-node": {
 		"compilerOptions": {

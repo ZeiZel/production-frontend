@@ -1,3 +1,5 @@
 export * from './AppLink';
 export * from './Button';
-export * from './ThemeSwitcher';
+export * from './Loader';
+export * from './Icon';
+export * from './HTag';

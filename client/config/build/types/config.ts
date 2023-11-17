@@ -7,12 +7,15 @@ export interface BuildPaths {
     build: string;
     html: string;
     src: string;
+    locales: string;
+    buildLocales: string;
 }
 
 // интерфейс переменных окружения, которые будут попадать в конфиг
 export interface BuildEnv {
     mode: BuildMode;
     port: number;
+    apiUrl: string;
 }
 
 // опции, которые будет принимать вебпак
@@ -21,4 +24,6 @@ export interface BuildOptions {
     paths: BuildPaths;
     isDev: boolean;
     port: number;
+    apiUrl: string;
+    project: 'storybook' | 'frontend' | 'jest';
 }
