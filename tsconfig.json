@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		// постановка всех путей от начала папки проекта
-		"baseUrl": "./server",
+		"baseUrl": "./",
 		"paths": {
 			"@/*": ["./src/*"]
 		},
