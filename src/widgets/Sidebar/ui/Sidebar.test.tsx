@@ -1,12 +1,21 @@
-import { render, screen } from '@testing-library/react';
-import { withTranslation } from 'react-i18next';
+import { fireEvent, screen } from '@testing-library/react';
 import { Sidebar } from '@/widgets';
+import { TestRendererHelper } from '@/shared/lib/helpers';
 
 describe('Sidebar', () => {
-	test('toggle sidebar', () => {
-		/* компоненты, которые используют перевод нужно обернуть в withTranslation */
-		const SidebarWithTranslation = withTranslation()(Sidebar);
-		render(<SidebarWithTranslation />);
+	/** проверяем, отрендерен ли сайдбар */
+	test('render sidebar', () => {
+		/* компоненты, которые используют перевод нужно обернуть в хок withTranslation или обернуть в провайдер, как тут */
+		TestRendererHelper.withTranslation(<Sidebar />);
 		expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+	});
+
+	/** проверяем, свёрнут ли сайдбар */
+	test('toggle sidebar', () => {
+		TestRendererHelper.withTranslation(<Sidebar />);
+		const toggleBtn = screen.getByTestId('sidebar-toggle');
+		const sidebar = screen.getByTestId('sidebar');
+		fireEvent.click(toggleBtn);
+		expect(sidebar).toHaveClass('collapsed');
 	});
 });

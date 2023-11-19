@@ -14,11 +14,11 @@
     "build:dev": "webpack  --env mode=development",
     "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "lint": "concurrently \"eslint \"**/*.{ts,tsx}\" --fix\" \"npx stylelint \"**/*.scss\" --fix\"",
-    "test:unit": "jest --config config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:e2e": "cypress open",
     "test:ui": "npx loki test",
-    "storybook": "storybook dev -p 6006 -c config/storybook",
-    "storybook:build": "storybook build -c config/storybook",
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "storybook:build": "storybook build -c ./config/storybook",
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {
