@@ -1,10 +1,37 @@
 .button {
-    cursor: pointer;
+	padding: 7px 12px;
+
+	color: var(--text-main);
+
+	border-radius: 5px;
+
+	cursor: pointer;
 }
 
-.clear {
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: none;
+.size {
+	&__s {
+		padding: 7px 12px;
+	}
+
+	&__m {
+		padding: 10px 15px;
+	}
+
+	&__l {
+		padding: 15px 20px;
+	}
+}
+
+.appearance {
+	&__primary {
+		color: var(--text-main);
+		background: var(--accent-color);
+	}
+
+	&__clear {
+		padding: 0;
+		margin: 0;
+		border: none;
+		background: none;
+	}
 }

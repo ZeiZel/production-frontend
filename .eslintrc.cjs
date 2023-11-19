@@ -26,9 +26,13 @@ module.exports = {
 			},
 			'files': [
 				'.eslintrc.{js,cjs}',
+				'**/src/**/*.test.{ts,tsx}',
 			],
 			'parserOptions': {
 				'sourceType': 'script',
+			},
+			rules: {
+				'i18next/no-literal-string': 'off',
 			},
 		},
 	],

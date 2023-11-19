@@ -9,27 +9,21 @@ import { buildCssLoader } from '../build/loader/style.loader';
 
 const config = {
 	stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
-
 	addons: [
 		'@storybook/addon-links',
-		{
-			name: '@storybook/addon-essentials',
-			options: {
-				backgrounds: false,
-			},
-		},
+		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
 		'storybook-addon-mock',
 		'storybook-addon-themes',
 	],
-
 	framework: {
 		name: '@storybook/react-webpack5',
 		options: {},
 	},
-
 	core: {},
-
+	docs: {
+		autodocs: true,
+	},
 	webpackFinal: async (config: Configuration) => {
 		const paths = {
 			build: '',
@@ -46,8 +40,9 @@ const config = {
 			'@': paths.src,
 		};
 
+		/* если в каком-либо правиле есть svg, то мы вернём старый объект и заэксклюдим svg в правиле */
 		config!.module!.rules = config!.module!.rules!.map(
-			// @ts-expect-ignore
+			// @ts-ignore
 			(rule: RuleSetRule) => {
 				if (/svg/.test(rule.test as string)) {
 					return { ...rule, exclude: /\.svg$/i };
@@ -57,6 +52,7 @@ const config = {
 			},
 		);
 
+		/* а тут уже доавим свгр, который преобразует svg */
 		config!.module!.rules.push({
 			test: /\.svg$/,
 			use: ['@svgr/webpack'],
@@ -72,10 +68,6 @@ const config = {
 		);
 
 		return config;
-	},
-
-	docs: {
-		autodocs: true,
 	},
 };
 

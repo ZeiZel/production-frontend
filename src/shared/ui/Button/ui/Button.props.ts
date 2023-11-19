@@ -1,12 +1,9 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
+import { EButtonType } from '../model';
+import { ButtonProps } from '@/shared/lib';
 
-export enum ThemeButton {
-	PRIMARY = 'primary',
-	CLEAR = 'clear',
-}
-
-export interface IButtonProps
-	extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-	children: ReactNode;
-	theme?: ThemeButton;
+export interface IButtonProps extends ButtonProps {
+	/** Тема кнопки */
+	appearance?: EButtonType;
+	/** Размер кнопки */
+	size: 's' | 'm' | 'l';
 }

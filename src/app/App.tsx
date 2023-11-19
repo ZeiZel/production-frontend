@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'clsx';
 import './styles/index.scss';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { AppRouter } from '@/app/providers/router';
@@ -10,7 +9,7 @@ const App = () => {
 	const { theme } = useTheme();
 
 	return (
-		<div className={cn('app', theme)}>
+		<div className={`app ${theme}`}>
 			<Navbar />
 			<div className='content-page'>
 				<Sidebar />
