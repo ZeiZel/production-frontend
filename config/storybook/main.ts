@@ -1,12 +1,12 @@
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
-import { buildCssLoader } from '../build/loader/style.loader';
+import { buildStyleLoader } from '../build/loader/style.loader';
+import { buildFileLoader } from '../build/loader/file.loader';
 
 /*
  * конфиг был прогнан через команду:
  * npx storybook@next automigrate
  * */
-
 const config = {
 	stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	addons: [
@@ -52,12 +52,8 @@ const config = {
 			},
 		);
 
-		/* а тут уже доавим свгр, который преобразует svg */
-		config!.module!.rules.push({
-			test: /\.svg$/,
-			use: ['@svgr/webpack'],
-		});
-		config!.module!.rules.push(buildCssLoader(true));
+		config!.module!.rules.push(buildStyleLoader(true));
+		config!.module!.rules.push(buildFileLoader());
 
 		config!.plugins!.push(
 			new DefinePlugin({
