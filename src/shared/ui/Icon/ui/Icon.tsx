@@ -1,6 +1,6 @@
 import React from 'react';
-import { IIconProps } from './Icon.props';
 import { ICONS } from '../model';
+import { IIconProps } from './Icon.props';
 
 export const Icon = ({ name, alt, width, height, ...props }: IIconProps) => {
 	return (

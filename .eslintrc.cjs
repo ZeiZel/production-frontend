@@ -13,6 +13,7 @@ module.exports = {
 	},
 	/* расширения конфига */
 	extends: [
+		'@feature-sliced',
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',

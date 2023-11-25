@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
 import cn from 'clsx';
+import React, { FC } from 'react';
+import { EButtonType } from '../model';
 import styles from './Button.module.scss';
 import { IButtonProps } from './Button.props';
-import { EButtonType } from '../model';
 
 /** Основная кнопка приложения */
 export const Button: FC<IButtonProps> = ({

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '@/shared/ui';
 import { useTranslation } from 'react-i18next';
 import { TRANSLATIONS_API } from '@/shared/const';
+import { Button } from '@/shared/ui';
 
 export const ErrorButton = () => {
 	const { t } = useTranslation(TRANSLATIONS_API.error.translate);

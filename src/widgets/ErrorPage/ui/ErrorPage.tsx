@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './ErrorPage.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Button, HTag, HTagType } from '@/shared/ui';
 import { TRANSLATIONS_API } from '@/shared/const';
+import { Button, HTag, HTagType } from '@/shared/ui';
+import styles from './ErrorPage.module.scss';
 
 export const ErrorPage = () => {
 	const { t } = useTranslation(TRANSLATIONS_API.error.translate);

@@ -1,8 +1,8 @@
+import cn from 'clsx';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import cn from 'clsx';
-import styles from './Navbar.module.scss';
 import { AppLink, AppLinkTheme } from '@/shared/ui';
+import styles from './Navbar.module.scss';
 import { INavbarProps } from './Navbar.props';
 
 export const Navbar = ({ className }: INavbarProps) => {

@@ -1,11 +1,9 @@
 import React from 'react';
-import { AppRouteProps } from '../model/types';
-import { AppRoutes } from '../model/const';
 /* pages */
-import { MainPageAsync } from '@/pages/MainPage';
 import { AboutPageAsync } from '@/pages/AboutPage';
-import { LoginPageAsync } from '@/pages/LoginPage';
 import { ForbiddenPageAsync } from '@/pages/ForbiddenPage';
+import { LoginPageAsync } from '@/pages/LoginPage';
+import { MainPageAsync } from '@/pages/MainPage';
 import { NotFoundPageAsync } from '@/pages/NotFoundPage';
 /* route const */
 import {
@@ -18,6 +16,8 @@ import {
 	getRouteForbidden,
 	getRouteNotFound,
 } from '@/shared/const';
+import { AppRoutes } from '../model/const';
+import { AppRouteProps } from '../model/types';
 
 /* тут мы храним все роуты приложения */
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {

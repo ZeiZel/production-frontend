@@ -1,10 +1,10 @@
+import cn from 'clsx';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import cn from 'clsx';
+import { LanguageSwitcher } from '@/features/LanguageSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import styles from './Sidebar.module.scss';
 import { ISidebarProps } from './Sidebar.props';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 
 export const Sidebar = ({ className }: ISidebarProps) => {
 	const { t } = useTranslation('ui');

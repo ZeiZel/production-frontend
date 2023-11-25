@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-function clearNodeModulesCache() {
+(function clearNodeModulesCache() {
 	const nodeModulesPath = path.resolve(__dirname, '..', 'node_modules');
 
 	fs.readdir(nodeModulesPath, (err, files) => {
@@ -32,6 +32,4 @@ function clearNodeModulesCache() {
 			});
 		});
 	});
-}
-
-clearNodeModulesCache();
+})();

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
-import { EButtonType } from '../model';
 import { withDecorators } from '@/shared/lib';
+import { EButtonType } from '../model';
+import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
 	title: 'Shared/Button',

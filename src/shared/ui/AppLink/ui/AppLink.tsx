@@ -1,6 +1,6 @@
+import cn from 'clsx';
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import cn from 'clsx';
 import styles from './AppLink.module.scss';
 import { IAppLinkProps, AppLinkTheme } from './AppLink.props';
 

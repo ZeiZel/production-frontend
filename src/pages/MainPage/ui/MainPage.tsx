@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { ErrorButton } from '@/app/providers/ErrorBoundary';
 import { TRANSLATIONS_API } from '@/shared/const';
 import { HTag, HTagType } from '@/shared/ui';
-import { ErrorButton } from '@/app/providers/ErrorBoundary';
 
 const MainPage = () => {
 	const { t } = useTranslation(TRANSLATIONS_API.main.translate);

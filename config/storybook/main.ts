@@ -1,7 +1,7 @@
-import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
-import { buildStyleLoader } from '../build/loader/style.loader';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import { buildFileLoader } from '../build/loader/file.loader';
+import { buildStyleLoader } from '../build/loader/style.loader';
 
 /*
  * конфиг был прогнан через команду:

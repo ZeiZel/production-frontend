@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ThemeButton } from '@/shared/ui';
+import { Button, EButtonType } from '@/shared/ui';
 
 describe('Button', () => {
 	test('button text', () => {
@@ -8,7 +8,7 @@ describe('Button', () => {
 	});
 
 	test('button classname', () => {
-		render(<Button theme={ThemeButton.CLEAR}>TEST</Button>);
-		expect(screen.getByText('TEST')).toHaveClass('clear');
+		render(<Button appearance={EButtonType.PRIMARY}>TEST</Button>);
+		expect(screen.getByText('TEST')).toHaveClass('button appearance__primary size__m');
 	});
 });

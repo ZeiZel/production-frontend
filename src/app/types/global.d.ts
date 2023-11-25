@@ -26,6 +26,6 @@ type DeepPartial<T> = T extends object
 	  }
 	: T;
 
-type OptionalRecord<K extends keyof any, T> = {
+type OptionalRecord<K extends keyof unknown, T> = {
 	[P in K]?: T;
 };

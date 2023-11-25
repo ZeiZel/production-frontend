@@ -1,5 +1,5 @@
-import { LinkProps } from 'react-router-dom';
 import { ReactNode } from 'react';
+import { LinkProps } from 'react-router-dom';
 
 export enum AppLinkTheme {
 	PRIMARY = 'primary',

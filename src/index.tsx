@@ -1,10 +1,10 @@
 import React, { StrictMode, Suspense } from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '@/app/providers/ThemeProvider';
-import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
-import { Skeleton } from '@/widgets/Skeleton';
 import App from '@/app/App';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { Skeleton } from '@/widgets/Skeleton';
 import '@/shared/config/i18n/i18n';
 
 const root: Root = createRoot(document.getElementById('root') as HTMLElement);

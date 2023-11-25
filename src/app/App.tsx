@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/index.scss';
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { AppRouter } from '@/app/providers/router';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 

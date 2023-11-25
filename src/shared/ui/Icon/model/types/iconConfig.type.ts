@@ -1,6 +1,6 @@
 import { SVGProps, VFC } from 'react';
-import { EIcons } from './icons.type';
 import { DarkThemeIcon, LightThemeIcon, UserDefaultIcon } from '@/shared/assets';
+import { EIcons } from './icons.type';
 
 export const ICONS: Record<EIcons, SVGImageElement | HTMLImageElement | string | SVGElement | VFC> =
 	{
