@@ -25,16 +25,19 @@ jobs:
         run: npm run build:prod
       - name: up storybook
         run: npm run storybook:build
-      - name: lint prettier
-        run: npm run lint:prettier:fix
+        if: always()
       - name: lint stylelint
         run: npm run lint:stylelint:fix
+        if: always()
       - name: lint eslint
         run: npm run lint:eslint:fix
+        if: always()
       - name: unit tests
         run: npm run test:unit
+        if: always()
       - name: unit ui
         run: npm run test:ui:ci
+        if: always()
   # джоб сборки проекта
 #  build:
 #    runs-on: ubuntu-latest
