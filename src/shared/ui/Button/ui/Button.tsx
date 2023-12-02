@@ -1,5 +1,5 @@
-import cn from 'clsx';
 import React, { FC } from 'react';
+import { cn } from '@/shared/lib';
 import { EButtonType } from '../model';
 import styles from './Button.module.scss';
 import { IButtonProps } from './Button.props';

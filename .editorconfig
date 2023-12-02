@@ -1,0 +1,20 @@
+root = true
+
+[*]
+# переносы совместимые с linux
+charset = utf-8
+end_of_line = lf
+
+# отступы
+indent_size = tab
+indent_style = tab
+tab_width = 4
+
+# вставляем конечную линию
+insert_final_newline = true
+
+# предельная длина файла
+max_line_length = 120
+
+# очищаем лишние пробелы
+trim_trailing_whitespace = true

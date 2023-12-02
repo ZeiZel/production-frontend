@@ -1,5 +1,5 @@
-import cn from 'clsx';
 import React, { createElement, FC, ReactNode } from 'react';
+import { cn } from '@/shared/lib';
 import styles from './HTag.module.scss';
 import { HTagType, IHTagProps } from './HTag.props';
 

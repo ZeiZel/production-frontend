@@ -59,6 +59,7 @@ module.exports = {
 	],
 	/* настройка правил  */
 	'rules': {
+		'react/no-children-prop': 'off',
 		'react/display-name': 'off',
 		/* начиная с React 17, нам не нужно импортировать реакт во все файлы */
 		'react/react-in-jsx-scope': 'off',
@@ -79,6 +80,7 @@ module.exports = {
 		/*  */
 		'import/no-unresolved': 'off',
 		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'error',
 		/* запрещает просто вводить текст в JSX - можно только через перевод */
 		'i18next/no-literal-string': ['error', { markupOnly: true }],
 		/* неиспользуемые переменные запрещены (TS) */
