@@ -1,7 +1,4 @@
 /node_modules
-/.idea
-/.vscode
 /build
-/.run
 /reports
 /storybook-static

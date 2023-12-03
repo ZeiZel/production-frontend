@@ -3,7 +3,7 @@ import http from 'http';
 import https from 'https';
 import path from 'path';
 import jsonServer from 'json-server';
-import { IUser } from './types/user.interface';
+import { IUser } from '../src/entities/User/model/types/user.interface';
 
 /**
  * Сертификаты для https-сервера

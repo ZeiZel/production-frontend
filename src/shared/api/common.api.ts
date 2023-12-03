@@ -6,7 +6,7 @@ export const rtkApi = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: __API__,
 		prepareHeaders: (headers: Headers /* api */): Headers => {
-			const token = localStorage.getItem(USER_LOCAL_STORAGE_KEY) || null;
+			const token = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
 
 			if (token) {
 				headers.set('Authorization', token);

@@ -59,6 +59,7 @@ module.exports = {
 	],
 	/* настройка правил  */
 	'rules': {
+		'no-console': 'error',
 		'react/no-children-prop': 'off',
 		'react/display-name': 'off',
 		/* начиная с React 17, нам не нужно импортировать реакт во все файлы */
