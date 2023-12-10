@@ -1,44 +1,49 @@
-import {
-	Action,
-	AnyAction,
-	configureStore,
-	MiddlewareArray,
-	ReducersMapObject,
-	ThunkMiddleware,
-} from '@reduxjs/toolkit';
-import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { CurriedGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
-// import { Reducer, CombinedState } from 'redux';
+import { CombinedState, Reducer } from 'redux';
+import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
 import { userReducers } from '@/entities/User';
 import { rtkApi } from '@/shared/api';
-import { StateSchema, ThunkExtraArg } from '@/shared/lib';
+import { StateSchema, ThunkExtraArg, ToolkitStoreType } from '@/shared/types';
 
 /**
  * Функция сборки редакс-стейта
+ * @param {StateSchema} initialState - начальный стейт, который мы получаем извне (для тестов)
+ * @param {ReducersMapObject<StateSchema>} asyncReducers - асинхронные редьюсеры (для тестов)
+ * @returns store - стор редакса
  * */
 export const createReduxStore = (
 	initialState?: StateSchema,
 	asyncReducers?: ReducersMapObject<StateSchema>,
-) => {
+): ToolkitStoreType => {
+	/** импортируем все редьюсеры приложения сюда */
 	const reducers: ReducersMapObject<StateSchema> = {
 		...asyncReducers,
+		/**
+		 * тут нужно оставлять только обязательные редьюсеры,
+		 * которые нужны для начальной загрузки приложения
+		 * */
 		user: userReducers,
 		[rtkApi.reducerPath]: rtkApi.reducer,
 	};
 
+	/** тут декларируем дополнительные аргументы в thunk, которые понядобятся для API */
 	const extraArgument: ThunkExtraArg = { api: {} };
 
-	const store: ToolkitStore<
-		StateSchema,
-		Action<unknown>,
-		MiddlewareArray<[ThunkMiddleware<StateSchema, AnyAction, ThunkExtraArg>]>
-	> = configureStore({
-		reducer: reducers, // as Reducer<CombinedState<StateSchema>>,
+	/** инстанциируем менеджер редьюсеров */
+	const reducerManager = createReducerManager(reducers);
+
+	const store: ToolkitStoreType = configureStore({
+		/** берём из менеджера редьюсеры */
+		reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
 		preloadedState: initialState,
 		devTools: __IS_DEV__ ? { shouldHotReload: true } : false,
 		middleware: (getDefaultMiddleware: CurriedGetDefaultMiddleware<StateSchema>) =>
 			getDefaultMiddleware({ thunk: { extraArgument } }),
 	});
+
+	/** добавляем в стейт сам менеджер редьюсеров */
+	store.reducerManager = reducerManager;
 
 	return store;
 };
