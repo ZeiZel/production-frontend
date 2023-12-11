@@ -1,4 +1,4 @@
-import { IDivAttributes } from '@/shared/lib';
+import { IDivAttributes } from '@/shared/types';
 
 export enum ECardType {
 	PRIMARY = 'primary',

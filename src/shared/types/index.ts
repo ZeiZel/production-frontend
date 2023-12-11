@@ -1,3 +1,3 @@
 export * from './state.schema';
-export * from './baseProps.type';
+export * from './baseProps.interface';
 export * from './features.interface';

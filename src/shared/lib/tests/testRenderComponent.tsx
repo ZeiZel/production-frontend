@@ -5,7 +5,7 @@ import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
-import { IDivAttributes } from '@/shared/types/baseProps.type';
+import { IDivAttributes } from '@/shared/types/baseProps.interface';
 import { StateSchema } from '@/shared/types/state.schema';
 import i18n from '../../config/i18n/i18n.tests';
 

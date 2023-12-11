@@ -1,3 +1,4 @@
+import { createReduxStore } from '../../src/app/providers/StoreProvider';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import {
 	withRouterDecorator,
@@ -5,6 +6,7 @@ import {
 	withSuspenseDecorator,
 	withThemeDecorator,
 } from '../../src/shared/lib';
+import { StoreDecorator } from '../../src/shared/lib/storybook/decorators/Store.decorator';
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
@@ -26,6 +28,7 @@ export const parameters = {
 		withStyleDecorator,
 		withSuspenseDecorator,
 		withRouterDecorator,
+		StoreDecorator(createReduxStore()),
 		withThemeDecorator(Theme.DARK),
 	],
 };

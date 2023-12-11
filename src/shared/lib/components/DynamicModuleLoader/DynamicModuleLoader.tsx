@@ -39,7 +39,7 @@ export const DynamicModuleLoader = ({
 				/** то монтируем данный редьюсер */
 				store.reducerManager.add(name as StateSchemaKey, reducer);
 				/** добавляем лог в консоли редакса */
-				dispatch({ type: `@INIT ${name} reducer` });
+				dispatch({ type: `@MOUNT ${name} reducer` });
 			}
 		});
 

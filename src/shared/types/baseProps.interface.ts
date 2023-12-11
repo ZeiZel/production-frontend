@@ -1,4 +1,13 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, HTMLAttributes, ImgHTMLAttributes } from 'react';
+import {
+	ButtonHTMLAttributes,
+	DetailedHTMLProps,
+	HTMLAttributes,
+	ImgHTMLAttributes,
+	InputHTMLAttributes,
+} from 'react';
+
+export interface IInputAttributes
+	extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
 
 export interface IButtonAttributes
 	extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {}
