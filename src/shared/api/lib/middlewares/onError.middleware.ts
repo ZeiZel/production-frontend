@@ -4,6 +4,6 @@ export const onErrorMiddleware: TMiddlewareFn<{ message: string }, Error> = (
 	config,
 	data,
 ): { message: string } => {
-	console.log(data?.message);
+	console.error(data?.message);
 	return { message: data?.message || 'Произошла непредвиденная ошибка' };
 };

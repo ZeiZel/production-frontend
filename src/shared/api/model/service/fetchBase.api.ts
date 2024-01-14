@@ -125,6 +125,7 @@ class FetchBaseApiClient implements IFetchBaseApiClientProps {
 		}
 	}
 
+	/** функция базового запроса внутри RTK Query */
 	public baseRtkFetchQuery =
 		({ baseUrl }: { baseUrl: string }): BaseQueryFn<IFetchBaseApi> =>
 		async ({
@@ -168,9 +169,9 @@ class FetchBaseApiClient implements IFetchBaseApiClientProps {
 }
 
 /** функция для совершения запросов на сервер */
-export const baseFetchQuery = new FetchBaseApiClient(__API__, {
+export const fetchConfig = new FetchBaseApiClient(__API__, {
 	[EMiddlewareStage.START]: [onErrorMiddleware],
 	[EMiddlewareStage.LOADING]: [onErrorMiddleware],
 	[EMiddlewareStage.SUCCESS]: [onErrorMiddleware],
 	[EMiddlewareStage.ERROR]: [onErrorMiddleware],
-}).addMiddleware(EMiddlewareStage.START, onErrorMiddleware).baseRtkFetchQuery;
+}).addMiddleware(EMiddlewareStage.START, onErrorMiddleware);

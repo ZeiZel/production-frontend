@@ -1,10 +1,10 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { baseFetchQuery } from '../service/fetchBase.api';
+import { fetchConfig } from '../service/fetchBase.api';
 
 /** базовый RTK Api для реализации АПИ через injectEndpoints */
 export const rtkApi = createApi({
 	reducerPath: 'api',
-	baseQuery: baseFetchQuery({
+	baseQuery: fetchConfig.baseRtkFetchQuery({
 		baseUrl: __API__,
 	}),
 	endpoints: () => ({}),
