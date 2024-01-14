@@ -12,7 +12,7 @@ import {
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = ({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] => {
+export const buildPlugins = ({ paths, project, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] => {
 	const plugins = [
 		// это плагин, который будет добавлять самостоятельно скрипт в наш index.html
 		new HTMLWebpackPlugin({
@@ -25,7 +25,7 @@ export const buildPlugins = ({ paths, isDev, apiUrl }: BuildOptions): WebpackPlu
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 			__API__: JSON.stringify(apiUrl),
-			__PROJECT__: JSON.stringify('frontend'),
+			__PROJECT__: JSON.stringify(project),
 		}),
 		/* данный плагин будет вываливать ошибку, если зависимости будут зациклены */
 		new CircularDependencyPlugin({

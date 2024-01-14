@@ -1,7 +1,7 @@
 import { rtkApi } from '@/shared/api';
 import { IGetUserRequest, IGetUserResponse } from '../model/types';
 
-const userApi = rtkApi.injectEndpoints({
+export const { endpoints: userEndpoints, useGetUserQuery } = rtkApi.injectEndpoints({
 	endpoints: ({ query, mutation }) => ({
 		getUser: query<IGetUserResponse, IGetUserRequest>({
 			query: ({ id }) => ({
@@ -10,5 +10,3 @@ const userApi = rtkApi.injectEndpoints({
 		}),
 	}),
 });
-
-export const { useGetUserQuery } = userApi;

@@ -1,7 +1,7 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { StateSchema } from '@/shared/lib';
+import { StateSchema } from '@/shared/types';
 import { createReduxStore } from '../config/store';
 
 interface IStoreProviderProps {

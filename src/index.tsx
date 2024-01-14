@@ -15,17 +15,17 @@ if (!root) {
 }
 
 root.render(
-	<StoreProvider>
-		<BrowserRouter>
-			<ErrorBoundary>
-				<ThemeProvider>
-					<StrictMode>
+	<BrowserRouter>
+		<ErrorBoundary>
+			<ThemeProvider>
+				<StrictMode>
+					<StoreProvider>
 						<Suspense fallback={<Skeleton />}>
 							<App />
 						</Suspense>
-					</StrictMode>
-				</ThemeProvider>
-			</ErrorBoundary>
-		</BrowserRouter>
-	</StoreProvider>,
+					</StoreProvider>
+				</StrictMode>
+			</ThemeProvider>
+		</ErrorBoundary>
+	</BrowserRouter>,
 );
