@@ -1,8 +1,10 @@
 version: "3.9"
 services:
-  app:
-    image: node:20-alpine
-    container_name: social-network
-    restart: always
-    ports:
-      - "3000:3000"
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "80:80"
+        environment:
+            NODE_ENV: production
