@@ -1,8 +1,100 @@
+@import '@/app/styles/index';
+
 .card {
+	border: 1px solid transparent;
 }
 
-.appearance {
+.shadow {
 	&__primary {
-		background: var(--background);
+		box-shadow: var(--main-shadow);
+	}
+
+	&__blue {
+		box-shadow: 0 4px 12px 0 rgb(49 103 208 / 24%);
+	}
+
+	&__none {
+		box-shadow: none;
+	}
+}
+
+.stretch {
+	width: 100%;
+}
+
+.bordered {
+	border: 1px solid var(--base-02);
+}
+
+.black {
+	background: var(--black);
+}
+
+.bg {
+	&__primary {
+		background: var(--background-alt);
+	}
+
+	&__active {
+		background: var(--mint-title-bg);
+	}
+
+	&__mint {
+		background: var(--mint);
+	}
+
+	&__description {
+		background: var(--description-gradient);
+	}
+
+	&__info {
+		background: var(--gradient-02);
+	}
+
+	&__product {
+		background: var(--base-01);
+	}
+
+	&__product-darker {
+		background: var(--base-02);
+	}
+
+	&__details {
+		background: var(--gradient-01);
+	}
+
+	&__ghost {
+		background: none;
+	}
+
+	&__transparent {
+		background: var(--background-header);
+		backdrop-filter: blur(16px) saturate(1.8);
+	}
+}
+
+.round {
+	&__s {
+		border-radius: 0.3rem;
+	}
+
+	&__m {
+		border-radius: 0.7rem;
+	}
+
+	&__l {
+		border-radius: 1.3rem;
+	}
+
+	&__xl {
+		border-radius: 1.6rem;
+	}
+
+	&__xxl {
+		border-radius: 2.3rem;
+	}
+
+	&__circle {
+		border-radius: 50%;
 	}
 }

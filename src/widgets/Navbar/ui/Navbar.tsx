@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib';
-import { AppLink, AppLinkTheme } from '@/shared/ui';
+import { AppLink } from '@/shared/ui';
 import styles from './Navbar.module.scss';
 import { INavbarProps } from './Navbar.props';
 
@@ -11,12 +11,10 @@ export const Navbar = ({ className }: INavbarProps) => {
 	return (
 		<div className={cn(styles.navbar, className)}>
 			<div className={styles.links}>
-				<AppLink theme={AppLinkTheme.SECONDARY} to={'/'} className={styles.links__main}>
+				<AppLink href={'/'} className={styles.links__main}>
 					{t('main')}
 				</AppLink>
-				<AppLink theme={AppLinkTheme.PRIMARY} to={'/about'}>
-					{t('about')}
-				</AppLink>
+				<AppLink href={'/about'}>{t('about')}</AppLink>
 			</div>
 		</div>
 	);

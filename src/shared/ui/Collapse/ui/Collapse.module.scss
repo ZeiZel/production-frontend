@@ -1,0 +1,27 @@
+.dropdown {
+	width: 100%;
+
+	&__title {
+		display: flex;
+		user-select: none;
+		gap: 15px;
+		cursor: pointer;
+	}
+
+	&__arrow {
+		transition: all 0.3s ease;
+	}
+
+	&__description {
+		/* костыльно используется паддинг, чтобы дропдаун не отталкивал снизу от него другие элементы */
+		padding-top: 10px;
+	}
+}
+
+.dropdown__title-stretch .dropdown__title {
+	justify-content: space-between;
+}
+
+.rotate {
+	transform: rotate(90deg);
+}

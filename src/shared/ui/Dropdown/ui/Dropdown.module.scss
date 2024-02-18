@@ -1,0 +1,14 @@
+.modal {
+	position: relative;
+
+	&__button {
+	}
+
+	&__window {
+		position: absolute;
+		top: 4.5rem;
+		left: 50%;
+		transform: translate(-50%, 0) !important;
+		z-index: var(--z-modal);
+	}
+}

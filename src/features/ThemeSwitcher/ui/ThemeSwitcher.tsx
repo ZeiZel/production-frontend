@@ -1,17 +1,13 @@
 import React from 'react';
-import { Theme, useTheme } from '@/app/providers/ThemeProvider';
+import { useTheme } from '@/shared/lib';
 import { Button, EIcons, Icon, EButtonType } from '@/shared/ui';
 
 export const ThemeSwitcher = () => {
-	const { theme, toggleTheme } = useTheme();
+	const { toggleTheme } = useTheme();
 
 	return (
 		<Button appearance={EButtonType.CLEAR} onClick={toggleTheme}>
-			{theme === Theme.DARK ? (
-				<Icon name={EIcons.DarkTheme} />
-			) : (
-				<Icon name={EIcons.LightTheme} />
-			)}
+			<Icon name={EIcons.Theme} />
 		</Button>
 	);
 };

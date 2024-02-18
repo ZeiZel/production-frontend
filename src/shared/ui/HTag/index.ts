@@ -1,2 +1,2 @@
 export { HTag } from './ui/HTag';
-export { HTagType } from './ui/HTag.props';
+export { EHTag } from './model/types/htag.type';

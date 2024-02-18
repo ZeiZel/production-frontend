@@ -1,0 +1,147 @@
+@mixin adaptive_placeholder($height, $radius, $margin, $border: 1px) {
+	color: var(--text-main);
+
+	$borders: ($border * 2);
+
+	height: calc(#{$height} + #{$borders});
+	margin: 0;
+	padding: $margin;
+	border: $border solid var(--base-03);
+	border-radius: $radius;
+	background: var(--background-bg);
+
+	/* Следующий блок контролирует изменение цвета */
+	&[required] {
+		+ label {
+			font-size: var(--font-text-m);
+		}
+
+		&:focus {
+			outline-color: var(--mint);
+
+			+ label {
+				&[placeholder] {
+					&::before {
+						color: var(--mint);
+					}
+				}
+			}
+		}
+
+		/*
+		 * Следующий блок выбирает метку, непосредственно смежную с вводом
+		 */
+		&:focus,
+		&:valid {
+			+ label {
+				&[placeholder] {
+					&::before {
+						background: #fff;
+						border-radius: 10px;
+						transition-duration: 0.2s;
+
+						/*
+						 * Следующие строки перемещают заполнитель
+						 */
+						transform: translate(0, ($margin * -1.5)) scale(0.9);
+					}
+				}
+			}
+		}
+
+		/*
+		 * Следующий блок вставляет строку из атрибута 'alt' метки.
+		 * Он располагается перед другим свойством 'content',
+		 * чтобы можно было заменить его. Использует псевдо-селектор "invalid",
+		 * чтобы знать, когда это делать.
+		 */
+		&:invalid {
+			+ label {
+				&[placeholder] {
+					&[alt] {
+						&::before {
+							content: attr(alt); // Свойство content 1 из 2
+						}
+					}
+				}
+			}
+		}
+
+		+ label {
+			&[placeholder] {
+				display: block;
+				pointer-events: none;
+				line-height: $margin * 1.25;
+				margin-top: calc(-#{$height} - #{$borders});
+				margin-bottom: calc((#{$height} - $margin) + #{$borders});
+
+				/*
+				 * Следующий ':before' нужен для переключения между разными строками.
+				 */
+				&::before {
+					content: attr(placeholder); // Свойство content 2 из 2
+					display: inline-block;
+					margin: 0 calc($margin + $borders);
+					padding: 0 2px;
+					color: var(--base-03);
+					white-space: nowrap;
+					transition: 0.3s ease-in-out;
+
+					/*
+					 * Следующие строки позволяют использовать сплошной цвет вместо изображения в качестве фона.
+					 * Это позволяет мне задать более нежный размер фона.
+					 */
+					background: linear-gradient(
+							to bottom,
+							var(--background-bg),
+							var(--background-bg)
+					) no-repeat center / 100% 5px;
+				}
+			}
+		}
+	}
+}
+
+.input {
+	position: relative;
+
+	$height: 45px;
+
+	input {
+		font-size: var(--font-text-m);
+		line-height: var(--line-height-m);
+		font-weight: var(--font-weight-base);
+
+		@include adaptive_placeholder($height, 1rem, 1rem);
+	}
+
+	img {
+		position: absolute;
+		top: 36%;
+		right: 5%;
+		transform: translate(0, -50%);
+	}
+}
+
+.stretch {
+	width: 100%;
+}
+
+.muted {
+	background: var(--primary);
+
+	&:focus {
+		background: var(--white);
+	}
+}
+
+.error {
+	border: 1px solid var(--warning);
+}
+
+.errorMessage {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	color: var(--warning);
+}

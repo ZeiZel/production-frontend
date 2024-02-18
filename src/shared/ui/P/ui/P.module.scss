@@ -1,0 +1,55 @@
+.p {
+	display: block;
+	color: var(--text-main);
+	font-weight: var(--font-weight-base);
+}
+
+.bold {
+	font-weight: var(--font-weight-bold);
+}
+
+.size {
+	&__xxs {
+		font-size: var(--font-text-xxs);
+		line-height: var(--line-height-xxs);
+	}
+
+	&__xs {
+		font-size: var(--font-text-xs);
+		line-height: var(--line-height-xs);
+	}
+
+	&__s {
+		font-size: var(--font-text-s);
+		line-height: var(--line-height-s);
+	}
+
+	&__m {
+		font-size: var(--font-text-m);
+		line-height: var(--line-height-m);
+	}
+
+	&__l {
+		font-size: var(--font-text-l);
+		line-height: var(--line-height-l);
+	}
+
+	&__xl {
+		font-size: var(--font-text-xl);
+		line-height: var(--line-height-xl);
+	}
+
+	&__xxl {
+		font-size: var(--font-text-xxl);
+		line-height: var(--line-height-xxl);
+	}
+}
+
+.muted {
+	color: var(--text-inverse-secondary);
+}
+
+.noWrap {
+	text-wrap: nowrap;
+	white-space: nowrap;
+}

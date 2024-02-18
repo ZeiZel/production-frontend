@@ -1,21 +1,17 @@
 import { IDivAttributes } from '@/shared/types';
-
-export enum ECardType {
-	PRIMARY = 'primary',
-	GHOST = 'ghost',
-}
-
-export enum ECardTag {
-	DIV = 'div',
-	FOOTER = 'footer',
-	HEADER = 'header',
-	SECTION = 'section',
-	MAIN = 'main',
-}
+import { ECardRound, ECardTag, ECardType, TCardShadow } from '../model';
 
 export interface ICardProps extends IDivAttributes {
-	/** тег карточки */
+	/** тег, из которого будет собрана карточка */
 	tag?: ECardTag;
-	/** тип карточки */
+	/** округление карточки */
+	round?: ECardRound;
+	/** тема карточки */
 	appearance?: ECardType;
+	/** проявить бордер */
+	enableBorder?: boolean;
+	/** растягивает его на всю ширину */
+	stretch?: boolean;
+	/** определяет тип тени */
+	shadow?: TCardShadow;
 }

@@ -1,10 +1,12 @@
+type TClass = string | number | boolean | null | undefined;
+
 /** тип объекта с классами */
 type ClassObject = {
-	[key: string]: boolean;
+	[key: string]: TClass | object;
 };
 
 /** аргументы функции cn */
-type TClassValue = string | number | boolean | null | undefined | ClassObject;
+type TClassValue = TClass | ClassObject;
 
 /**
  * функция для сборки классов
@@ -12,9 +14,11 @@ type TClassValue = string | number | boolean | null | undefined | ClassObject;
  * @returns {String} string - результирующая строка
  * */
 export const cn = (...args: TClassValue[]): string => {
+	if (args.length === 1 && typeof args[0] === 'string') return args[0];
+
 	const classes: string[] = [];
 
-	args.forEach((arg: TClassValue) => {
+	args.forEach((arg) => {
 		if (Array.isArray(arg)) {
 			classes.push(...arg.filter(Boolean).map(String));
 		} else if (typeof arg === 'string') {

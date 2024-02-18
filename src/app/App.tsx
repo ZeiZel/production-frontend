@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/index.scss';
-import { AppRouter } from '@/app/providers/router';
-import { useTheme } from '@/app/providers/ThemeProvider';
+import { AppRouter } from '@/app/providers';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
+import { useTheme } from '@/shared/lib';
 
 const App = () => {
 	const { theme } = useTheme();

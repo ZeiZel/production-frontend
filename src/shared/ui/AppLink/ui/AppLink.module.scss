@@ -1,9 +1,38 @@
 .link {
+	display: flex;
+	color: var(--text-main);
+	font-size: var(--font-text-m);
+	line-height: var(--line-height-m);
+	cursor: pointer;
+	text-decoration: none;
+	transition: all 0.3s ease;
+
+	&:hover {
+		//color: var(--text-inverse-secondary);
+		color: var(--text-inverse-secondary);
+	}
+
+	&__arrow {
+		margin-left: 1.6rem;
+	}
 }
 
-.primary {
+.nohover {
+	&:hover {
+		color: var(--text-main);
+	}
 }
 
-.secondary {
-	color: var(--inverted-text-secondary);
+.colored {
+	color: var(--mint);
+}
+
+.semilink {
+	color: var(--text-secondary);
+}
+
+.ghost {
+	&:hover {
+		text-decoration: none;
+	}
 }

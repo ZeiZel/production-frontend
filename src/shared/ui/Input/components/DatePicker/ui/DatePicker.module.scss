@@ -1,0 +1,20 @@
+.datepicker {
+	&__label {
+		&.active {
+		}
+	}
+
+	&__input {
+		&::-webkit-calendar-picker-indicator {
+		}
+
+		&:focus {
+		}
+
+		&:focus + .datepicker__label {
+		}
+
+		&:not(:placeholder-shown) + .datepicker__label {
+		}
+	}
+}

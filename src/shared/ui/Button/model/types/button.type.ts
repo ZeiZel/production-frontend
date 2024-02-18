@@ -1,6 +1,12 @@
 export enum EButtonType {
 	PRIMARY = 'primary',
 	GHOST = 'ghost',
-	CLEAR = 'clear',
+	FULFILLED = 'fulfilled',
+	PRODUCT = 'product',
 	MUTED = 'muted',
+	TOGGLED = 'toggled',
+	CLEAR = 'clear',
+	MINT = 'mint',
+	ACCENT = 'accent',
+	TRANSPARENT = 'transparent',
 }

@@ -1,4 +1,3 @@
-import { IFeatures } from '@/shared/lib';
 import { IJsonSettings } from './userSettings.interface';
 
 /** список пользователей */
@@ -12,7 +11,6 @@ export interface IUser {
 	username: string;
 	password: string;
 	roles: string[];
-	features: IFeatures;
 	avatar: string;
 	jsonSettings?: IJsonSettings;
 }

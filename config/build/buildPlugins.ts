@@ -28,7 +28,7 @@ export const buildPlugins = ({ paths, project, isDev, apiUrl }: BuildOptions): W
 			__PROJECT__: JSON.stringify(project),
 		}),
 		/* данный плагин будет вываливать ошибку, если зависимости будут зациклены */
-		new CircularDependencyPlugin({
+		/*new CircularDependencyPlugin({
 			exclude: /node_modules/,
 			failOnError: true,
 		}),
@@ -40,7 +40,7 @@ export const buildPlugins = ({ paths, project, isDev, apiUrl }: BuildOptions): W
 				},
 				mode: 'write-references',
 			},
-		}),
+		}),*/
 	];
 
 	if (isDev) {

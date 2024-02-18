@@ -1,6 +1,7 @@
+import React from 'react';
 import { createPortal } from 'react-dom';
 import { IPortalProps } from './Portal.props';
 
-/** портал для рендера компонентов в отдельных частях приложения */
-export const Portal = ({ children, element = document.body }: IPortalProps) =>
-	createPortal(children, element);
+export const Portal = ({ children, targetNode = document.body, key }: IPortalProps) => {
+	return createPortal(children, targetNode, key);
+};

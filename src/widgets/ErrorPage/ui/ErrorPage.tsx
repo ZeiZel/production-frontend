@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TRANSLATIONS_API } from '@/shared/const';
-import { Button, HTag, HTagType } from '@/shared/ui';
+import { Button, EHTag, HTag } from '@/shared/ui';
 import styles from './ErrorPage.module.scss';
 
 export const ErrorPage = () => {
@@ -13,7 +13,7 @@ export const ErrorPage = () => {
 
 	return (
 		<div className={styles.error}>
-			<HTag tag={HTagType.H1}>{t(TRANSLATIONS_API.error.components.error_page_title)}</HTag>
+			<HTag tag={EHTag.H1}>{t(TRANSLATIONS_API.error.components.error_page_title)}</HTag>
 			<Button onClick={handleReloadPage}>
 				{t(TRANSLATIONS_API.error.components.error_page_button)}
 			</Button>

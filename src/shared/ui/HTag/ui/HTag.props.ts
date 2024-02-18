@@ -1,16 +1,11 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { EHTag } from '@/shared/ui';
 
-export enum HTagType {
-	H1 = 'h1',
-	H2 = 'h2',
-	H3 = 'h3',
-	H4 = 'h4',
-	H5 = 'h5',
-	H6 = 'h6',
-}
-
-export interface IHTagProps
-	extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
-	tag: HTagType;
+export interface IHTagProps extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
+	/** тег заголовка */
+	tag: EHTag;
+	/** центрирует заголовок */
+	center?: boolean;
+	/** мьютит заголовок */
 	muted?: boolean;
 }

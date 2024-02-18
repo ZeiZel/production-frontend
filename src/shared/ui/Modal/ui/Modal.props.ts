@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
 export interface IModalProps {
-	/** триггер открытия модалки */
-	label: ReactNode;
-	/** контент модалки */
-	content: ReactNode;
-	/** начальное состояние модалки */
-	isOpened?: boolean;
+	/** внешний компонент */
+	label?: ReactNode;
+	/** вложенный компонент */
+	children: ReactNode;
+	/** состояние модалки */
+	modalShowed?: boolean;
 }

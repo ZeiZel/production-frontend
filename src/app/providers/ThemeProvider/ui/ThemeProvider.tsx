@@ -1,17 +1,22 @@
-import React, { FC, ReactNode, useMemo, useState } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
+import React, { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useMemo, useState } from 'react';
+import { LOCAL_STORAGE_THEME_KEY, Theme } from '@/shared/const';
+import { ThemeContext } from '@/shared/lib';
 
-const defaultTheme: Theme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+// тут мы получаем саму тему из локального хранилища, и если её нет, то устанавливается светлая по умолчанию
+const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
-const ThemeProvider: FC<{ children: ReactNode; initialTheme?: Theme }> = ({
-	children,
-	initialTheme = Theme.LIGHT,
-}) => {
-	const [theme, setTheme] = useState<Theme>(defaultTheme || initialTheme);
+export interface ThemeProviderProps
+	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+	children: ReactNode;
+}
 
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+	const [theme, setTheme] = useState<Theme>(defaultTheme);
+
+	// мемоизируем объект, чтобы каждый раз при перерендере он не соаздавался заново
 	const defaultProps = useMemo(
 		() => ({
-			theme: theme,
+			theme,
 			setTheme: setTheme,
 		}),
 		[theme],
@@ -19,5 +24,3 @@ const ThemeProvider: FC<{ children: ReactNode; initialTheme?: Theme }> = ({
 
 	return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };
-
-export default ThemeProvider;

@@ -1,12 +1,18 @@
-import { ReactNode } from 'react';
-import { LinkProps } from 'react-router-dom';
+import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 
-export enum AppLinkTheme {
-	PRIMARY = 'primary',
-	SECONDARY = 'secondary',
-}
-
-export interface IAppLinkProps extends LinkProps {
-	children: ReactNode;
-	theme?: AppLinkTheme;
+export interface IAppLinkProps extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
+	/** отсутствие эффекта при наведении */
+	nohover?: boolean;
+	/** тип внешняя или внутренняя ссылка */
+	type?: 'external' | 'internal';
+	/** иконка */
+	icon?: string;
+	/** побочная иконка */
+	semilink?: boolean;
+	/** скрытая */
+	ghost?: boolean;
+	/** цветная */
+	colored?: boolean;
+	/**  */
+	arrow?: boolean;
 }

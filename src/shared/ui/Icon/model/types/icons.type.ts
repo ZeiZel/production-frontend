@@ -1,7 +1,5 @@
+/* 2 - создаём ему имя */
 export enum EIcons {
-	/* ui */
-	User,
 	/* theme */
-	DarkTheme,
-	LightTheme,
+	Theme,
 }

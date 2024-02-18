@@ -5,9 +5,8 @@ import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
-import { IDivAttributes } from '@/shared/types/baseProps.interface';
-import { StateSchema } from '@/shared/types/state.schema';
 import i18n from '../../config/i18n/i18n.tests';
+import { IDivAttributes, StateSchema } from '../../types';
 
 /** необязательные опции, которые нужны для запуска провайдеров тестов */
 export interface IRenderOptions {

@@ -1,34 +1,157 @@
 .button {
-	padding: 7px 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
 	color: var(--text-main);
-	border-radius: 5px;
+	font-size: var(--font-text-m);
+	line-height: var(--line-height-m);
+	font-weight: var(--font-weight-medium);
 	cursor: pointer;
+	transition: all 0.3s ease;
+	border: var(--border-transparent);
+
+	&:hover {
+		border: 1px solid var(--base-03);
+		color: var(--text-inverse-secondary);
+	}
+
+	&__image {
+		width: 1.6rem;
+		height: 1.6rem;
+		padding: 0;
+		margin: 0 8px 0 0;
+	}
 }
 
-.size {
+.rounded {
 	&__s {
-		padding: 7px 12px;
+		border-radius: 0.5rem;
 	}
 
 	&__m {
-		padding: 10px 15px;
+		border-radius: 1.2rem;
 	}
 
 	&__l {
-		padding: 15px 20px;
+		border-radius: 6.3rem;
 	}
 }
 
-.appearance {
-	&__primary {
-		color: var(--text-main);
-		background: var(--accent-color);
+.shadow {
+	&__none {
+		box-shadow: unset;
 	}
 
-	&__clear {
-		padding: 0;
-		margin: 0;
-		border: none;
-		background: none;
+	&__primary {
+		box-shadow: var(--accent-shadow);
+	}
+
+	&__base {
+		box-shadow: var(--main-shadow);
+	}
+}
+
+.size {
+	&__unsized {
+		padding: 0.8rem;
+	}
+
+	&__s {
+		padding: 0.4rem 1.2rem;
+		font-size: 1.3rem;
+	}
+
+	&__m {
+		padding: 0.8rem 1.6rem;
+	}
+
+	&__l {
+		padding: 1.7rem 3.2rem;
+	}
+
+	&__xl {
+		padding: 2.5rem;
+	}
+}
+
+.circle {
+	border-radius: 50%;
+}
+
+.stretch {
+	width: 100%;
+}
+
+.primary {
+	background: var(--accent);
+	color: var(--text-inverse-alt);
+}
+
+.clear {
+	background: var(--clear-02);
+
+	&:hover {
+		background: var(--base-01);
+	}
+}
+
+.muted {
+	background: var(--base-01);
+}
+
+.ghost {
+	background: none;
+}
+
+.toggled {
+	color: var(--text-iverse);
+	background: var(--base-04);
+}
+
+.product {
+	color: var(--text-main);
+	background: var(--clear-02);
+
+	&:hover {
+		color: var(--text-iverse);
+		filter: saturate(75%);
+		background: var(--accent);
+	}
+}
+
+.mint {
+	color: var(--text-inverse-alt);
+	background: var(--mint);
+
+	&:hover {
+		color: var(--text-inverse-alt);
+		filter: brightness(1.1);
+		background: var(--mint);
+	}
+}
+
+.fulfilled {
+	background: var(--primary-gradient);
+}
+
+.accent {
+	background: var(--background-accent);
+	color: var(--accent);
+	border: 1px solid var(--accent);
+
+	&:hover {
+		background: var(--gradient-03);
+		border: 1px solid var(--accent);
+		color: #fff;
+	}
+}
+
+.transparent {
+	background: transparent;
+	border: 1px solid var(--base-03);
+
+	&:hover {
+		background: var(--base-02);
 	}
 }
