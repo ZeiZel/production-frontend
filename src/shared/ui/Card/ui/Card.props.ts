@@ -9,7 +9,7 @@ export interface ICardProps extends IDivAttributes {
 	/** тема карточки */
 	appearance?: ECardType;
 	/** проявить бордер */
-	enableBorder?: boolean;
+	border?: boolean;
 	/** растягивает его на всю ширину */
 	stretch?: boolean;
 	/** определяет тип тени */

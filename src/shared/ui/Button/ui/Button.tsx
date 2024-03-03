@@ -1,6 +1,5 @@
 import React, { forwardRef, ForwardedRef, memo } from 'react';
 import { StringHelper, cn } from '@/shared/lib';
-import { EIcons, Icon } from '../../Icon';
 import { EButtonType } from '../model';
 import styles from './Button.module.scss';
 import { IButtonProps } from './Button.props';
@@ -13,7 +12,6 @@ export const Button = memo(
 		(
 			{
 				appearance = EButtonType.PRIMARY,
-				arrow = 'none',
 				stretch = false,
 				rounded = 'm',
 				outlined = false,
@@ -29,24 +27,6 @@ export const Button = memo(
 			}: IButtonProps,
 			ref: ForwardedRef<HTMLButtonElement>,
 		) => {
-			const handleArrow = (arrowSide: string) => {
-				switch (arrowSide) {
-					case 'right':
-						return <Icon name={EIcons.ArrowRight} alt='стрелка вправо' />;
-					case 'bottom':
-						return (
-							<Icon
-								name={EIcons.ArrowRight}
-								alt='стрелка вниз'
-								style={{ transform: 'rotate(90deg)' }}
-							/>
-						);
-					case 'none':
-					default:
-						return null;
-				}
-			};
-
 			return (
 				<button
 					{...props}
@@ -67,16 +47,6 @@ export const Button = memo(
 						},
 					)}
 				>
-					{handleArrow(arrow)}
-					{image && (
-						<Icon
-							name={image}
-							alt={String(children)}
-							width={20}
-							height={20}
-							className={styles.button__image}
-						/>
-					)}
 					{StringHelper.formatCase(children, formatText)}
 				</button>
 			);

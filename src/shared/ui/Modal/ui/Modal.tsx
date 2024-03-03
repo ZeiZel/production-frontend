@@ -4,17 +4,12 @@ import { Portal } from '@/shared/ui/Portal/ui/Portal';
 import { AnimatedWrapper } from '../../AnimatedWrapper';
 import { Button, EButtonType } from '../../Button';
 import { Card, ECardRound, ECardType } from '../../Card';
-import { EIcons, Icon } from '../../Icon';
 import styles from './Modal.module.scss';
 import { IModalProps } from './Modal.props';
 
 /** компонент модального окна */
-export const Modal: FC<IModalProps> = ({
-	children,
-	label,
-	modalShowed = false,
-}: IModalProps) => {
-	const { modalRef, modalExpanded, handleOpenModal } = useModal({ modalShowed });
+export const Modal: FC<IModalProps> = ({ children, label, modalShowed = false }: IModalProps) => {
+	const { modalRef, modalExpanded, handleOpenModal } = useModal();
 
 	return (
 		<div ref={modalRef} className={styles.modal}>
@@ -47,12 +42,7 @@ export const Modal: FC<IModalProps> = ({
 											circle
 											size={'unsized'}
 										>
-											<Icon
-												name={EIcons.Close}
-												alt={'Закрыть'}
-												width={15}
-												height={15}
-											/>
+											X
 										</Button>
 									</div>
 									{children}

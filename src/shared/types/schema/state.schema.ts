@@ -1,14 +1,4 @@
-import {
-	AnyAction,
-	CombinedState,
-	Reducer,
-	ReducersMapObject,
-	EnhancedStore,
-	Action,
-	MiddlewareArray,
-	ThunkMiddleware,
-} from '@reduxjs/toolkit';
-import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
+import { Reducer, ReducersMapObject, EnhancedStore, UnknownAction, Store } from '@reduxjs/toolkit';
 import { BaseAuthSchema } from '@/features/BaseAuth';
 import { UserSchema } from '@/entities/User';
 import { rtkApi } from '@/shared/api';
@@ -27,17 +17,10 @@ export type StateSchemaKey = keyof StateSchema;
 /** список вмонтированных редьюсеров */
 export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
-export type ToolkitStoreType = ToolkitStore<
-	StateSchema,
-	Action<unknown>,
-	MiddlewareArray<[ThunkMiddleware<StateSchema, AnyAction, ThunkExtraArg>]>
-	/** костыль для добавления менеджера редьюсеров */
-> & { reducerManager?: object };
-
 /** возвращаемые значения из менеджера редьюсеров */
 export interface ReducerManager {
 	getReducerMap: () => ReducersMapObject<StateSchema>;
-	reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+	reduce: (state: StateSchema, action: UnknownAction) => Store<StateSchema>;
 	add: (key: StateSchemaKey, reducer: Reducer) => void;
 	remove: (key: StateSchemaKey) => void;
 	getMountedReducers: () => MountedReducers;

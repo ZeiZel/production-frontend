@@ -29,6 +29,9 @@ export function buildStyleLoader(isDev: boolean) {
 					},
 				},
 			},
+			/**
+			 * автоматически подставляет нужные префиксы ко всем стилям
+			 * */
 			{
 				loader: 'postcss-loader',
 				options: {

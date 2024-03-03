@@ -10,7 +10,7 @@ export const Card = forwardRef<HTMLDivElement, ICardProps>(
 		{
 			appearance = ECardType.PRIMARY,
 			round = ECardRound.M,
-			enableBorder = false,
+			border = false,
 			stretch = false,
 			shadow = 'primary',
 			tag = ECardTag.DIV,
@@ -28,7 +28,7 @@ export const Card = forwardRef<HTMLDivElement, ICardProps>(
 				styles[`bg__${appearance}`],
 				styles[`shadow__${shadow}`],
 				{
-					[styles.bordered]: enableBorder,
+					[styles.bordered]: border,
 					[styles.stretch]: stretch,
 				},
 			),

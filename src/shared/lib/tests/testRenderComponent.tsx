@@ -3,8 +3,8 @@ import { render } from '@testing-library/react';
 import React, { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
-import { StoreProvider } from '@/app/providers/StoreProvider';
-import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
+import { StoreProvider, ThemeProvider } from '@/app/providers';
+import { Theme } from '@/shared/const';
 import i18n from '../../config/i18n/i18n.tests';
 import { IDivAttributes, StateSchema } from '../../types';
 

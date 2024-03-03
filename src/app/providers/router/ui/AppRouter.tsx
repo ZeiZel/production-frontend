@@ -1,5 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
+import { Layout } from '@/widgets/Layout';
 import { Loader } from '@/shared/ui';
 import { routeConfig } from '../config/route.config';
 
@@ -10,9 +12,11 @@ export const AppRouter = () => (
 				key={path}
 				path={path}
 				element={
-					<Suspense fallback={<Loader />}>
-						<div className='page-wrapper'>{element}</div>
-					</Suspense>
+					<RequireAuth>
+						<Suspense fallback={<Loader />}>
+							<Layout>{element}</Layout>
+						</Suspense>
+					</RequireAuth>
 				}
 			/>
 		))}

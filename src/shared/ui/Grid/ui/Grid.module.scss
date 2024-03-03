@@ -1,0 +1,76 @@
+.flex {
+	display: flex;
+}
+
+.grid {
+	display: grid;
+}
+
+.center {
+	align-items: center;
+	justify-content: center;
+}
+
+.gap {
+	& {
+		@for $i from 1 to 13 {
+			&-#{$i} {
+				gap: #{$i}rem;
+			}
+		}
+	}
+}
+
+.direction {
+	&-row {
+		flex-direction: row;
+	}
+
+	&-column {
+		flex-direction: column;
+	}
+}
+
+.rows {
+	& {
+		@for $i from 1 to 13 {
+			&-#{$i} {
+				grid-template-rows: repeat(#{$i}, #{$i}fr);
+			}
+
+			@for $j from 1 to 13 {
+				&-#{$i}-#{$j} {
+					grid-template-rows: #{$i}fr #{$j}fr;
+				}
+
+				@for $l from 1 to 13 {
+					&-#{$i}-#{$j}-#{$l} {
+						grid-template-rows: #{$i}fr #{$j}fr #{$l}fr;
+					}
+				}
+			}
+		}
+	}
+}
+
+.columns {
+	& {
+		@for $i from 1 to 13 {
+			&-#{$i} {
+				grid-template-columns: repeat($i, $i);
+			}
+
+			@for $j from 1 to 13 {
+				&-#{$i}-#{$j} {
+					grid-template-columns: #{$i}fr #{$j}fr;
+				}
+
+				@for $l from 1 to 13 {
+					&-#{$i}-#{$j}-#{$l} {
+						grid-template-columns: #{$i}fr #{$j}fr #{$l}fr;
+					}
+				}
+			}
+		}
+	}
+}
