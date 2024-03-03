@@ -3,6 +3,7 @@ export * from './Tag';
 export * from './Card';
 export * from './HTag';
 export * from './Grid';
+export * from './List';
 export * from './Icon';
 export * from './Input';
 export * from './Image';
